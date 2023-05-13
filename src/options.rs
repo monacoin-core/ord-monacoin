@@ -92,11 +92,11 @@ impl Options {
     } else if cfg!(target_os = "linux") {
       dirs::home_dir()
         .ok_or_else(|| anyhow!("failed to retrieve home dir"))?
-        .join(".bitcoin")
+        .join(".monacoin")
     } else {
       dirs::data_dir()
         .ok_or_else(|| anyhow!("failed to retrieve data dir"))?
-        .join("Bitcoin")
+        .join("Monacoin")
     };
 
     let path = self.chain().join_with_data_dir(&path);

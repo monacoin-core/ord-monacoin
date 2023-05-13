@@ -145,7 +145,11 @@ impl Index {
 
     let client = Client::new(&rpc_url, auth.clone()).context("failed to connect to RPC URL")?;
 
-    let data_dir = options.data_dir()?;
+    let data_dir = if let Some(data_dir) = &options.data_dir {
+      data_dir.clone()
+    } else {
+      env::current_dir().unwrap()
+    };
 
     if let Err(err) = fs::create_dir_all(&data_dir) {
       bail!("failed to create data dir `{}`: {err}", data_dir.display());

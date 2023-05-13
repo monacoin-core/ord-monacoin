@@ -5,8 +5,8 @@ version = "0.5.2"
 license = "CC0-1.0"
 edition = "2021"
 autotests = false
-homepage = "https://github.com/casey/ord"
-repository = "https://github.com/casey/ord"
+homepage = "https://github.com/monacoin-core/ord"
+repository = "https://github.com/monacoin-core/ord"
 autobins = false
 rust-version = "1.67"
 
@@ -78,3 +78,6 @@ path = "tests/lib.rs"
 
 [build-dependencies]
 pulldown-cmark = "0.9.2"
+
+[patch.crates-io]
+bitcoin = { git = "https://github.com/monacoin-core/rust-monacoin", branch = "monacoin-0.29.2" }
